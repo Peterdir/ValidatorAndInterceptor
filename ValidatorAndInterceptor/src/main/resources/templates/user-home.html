@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home</title>
+    <link rel="stylesheet" th:href="@{/css/user-home.css}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">SalesApp</h2>
+
+        <nav>
+            <a href="#" class="active">🏠 Trang chủ</a>
+            <a href="#">📦 Sản phẩm</a>
+            <a href="#">🛒 Đơn hàng</a>
+            <a href="#">👤 Tài khoản</a>
+            <a th:href="@{/auth/logout}" class="logout">🚪 Đăng xuất</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>Xin chào, <span th:text="${session.user.username}">User</span> 👋</h1>
+            <p>Chúc bạn một ngày làm việc hiệu quả</p>
+        </header>
+
+        <!-- STATISTIC CARDS -->
+        <section class="stats">
+            <div class="card">
+                <h3>12</h3>
+                <p>Đơn hàng</p>
+            </div>
+            <div class="card">
+                <h3>5</h3>
+                <p>Sản phẩm</p>
+            </div>
+            <div class="card">
+                <h3>3</h3>
+                <p>Đang xử lý</p>
+            </div>
+        </section>
+
+        <!-- CONTENT -->
+        <section class="content">
+            <h2>Hoạt động gần đây</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Đơn hàng</th>
+                        <th>Ngày</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#DH001</td>
+                        <td>17/12/2025</td>
+                        <td><span class="status success">Hoàn thành</span></td>
+                    </tr>
+                    <tr>
+                        <td>#DH002</td>
+                        <td>16/12/2025</td>
+                        <td><span class="status pending">Đang xử lý</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>

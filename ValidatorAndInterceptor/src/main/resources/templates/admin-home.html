@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/admin-home.css}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2 class="logo">SalesAdmin</h2>
+
+        <nav>
+            <a href="#" class="active">📊 Dashboard</a>
+            <a th:href="@{/admin/category}">📁 Quản lý danh mục</a>
+            <a th:href="@{/admin/product}">📦 Quản lý sản phẩm</a>
+            <a href="#">👥 Quản lý user</a>
+            <a th:href="@{/auth/logout}" class="logout">🚪 Đăng xuất</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>Chào Admin, <span th:text="${session.user.username}">Admin</span> 👋</h1>
+            <p>Bảng điều khiển quản trị hệ thống</p>
+        </header>
+
+        <!-- STATS -->
+        <section class="stats">
+            <div class="card">
+                <h3>8</h3>
+                <p>Danh mục</p>
+            </div>
+            <div class="card">
+                <h3>24</h3>
+                <p>Sản phẩm</p>
+            </div>
+            <div class="card">
+                <h3>15</h3>
+                <p>Người dùng</p>
+            </div>
+            <div class="card">
+                <h3>120</h3>
+                <p>Đơn hàng</p>
+            </div>
+        </section>
+
+        <!-- MANAGEMENT SHORTCUT -->
+        <section class="quick-actions">
+            <h2>Quản lý nhanh</h2>
+
+            <div class="actions">
+                <a th:href="@{/admin/category}" class="action-card">
+                    📁
+                    <span>Quản lý danh mục</span>
+                </a>
+
+                <a th:href="@{/admin/product}" class="action-card">
+                    📦
+                    <span>Quản lý sản phẩm</span>
+                </a>
+
+                <a href="#" class="action-card">
+                    👥
+                    <span>Quản lý người dùng</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- TABLE -->
+        <section class="content">
+            <h2>Hoạt động gần đây</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hành động</th>
+                        <th>Thời gian</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Thêm sản phẩm mới</td>
+                        <td>17/12/2025</td>
+                        <td><span class="status success">Thành công</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cập nhật danh mục</td>
+                        <td>16/12/2025</td>
+                        <td><span class="status pending">Đang xử lý</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>
